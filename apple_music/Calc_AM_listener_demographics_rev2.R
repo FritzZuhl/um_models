@@ -55,6 +55,8 @@ BQ_data <- DBI::dbFetch(res)
 dbClearResult(res)
 
 # save(BQ_data, file = "BQ_data.RData")
+# write.csv2(BQ_data, file = "BQ_data.csv", sep=",")
+
 
 if (method == 'first') {
   out <-plyr::ddply(BQ_data, .(anonymized_person_id), get_listener_stat1)

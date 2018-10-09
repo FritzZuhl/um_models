@@ -1,6 +1,8 @@
 .Rhistory/**
 .Rhistory
-
+.idea/**
+**/.httr-oauth
+**/.idea/**
 
 
 
