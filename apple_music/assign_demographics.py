@@ -1,3 +1,6 @@
+#
+#
+#
 import os
 import numpy as np
 import pandas as pd
@@ -13,7 +16,7 @@ import collections
 # with open('BQ_data.plk', 'wb') as output:
 #    pickle.dump(d, output, pickle.HIGHEST_PROTOCOL)
 
-with open('BQ_data.plk', 'rb') as input:
+with open('data/BQ_data.plk', 'rb') as input:
     d = pickle.load(input)
 
 anonymized_person_id_unique = list(set(d.anonymized_person_id))
