@@ -1,10 +1,6 @@
-#
-#
-#
-sys.path.append("/Users/fritzzuhl/t3")
-sys.path.append("/Users/fritzzuhl/t3/util")
 
-
+import util
+import util.bq as bq
 
 import numpy as np
 import pandas as pd
@@ -13,9 +9,6 @@ import itertools
 import random
 import pandas_gbq as gbq
 
-import util
-import bq
-import util.bq as bq
 
 
 project_id = 'tommy-boy'
@@ -69,6 +62,7 @@ d = pd.DataFrame(
     ]
 )
 
+
 # input_file = 'data/BQ_data.plk'
 # try:
 #     with open(input_file, 'rb') as input:
@@ -92,9 +86,6 @@ streams = pd.DataFrame(
         for schema_dictionary in res['schema']['fields']
     ]
 )
-
-
-
 
 
 
@@ -150,5 +141,13 @@ assignments = pd.DataFrame(
             }
             )
 
-result = pd.merge(streams, assignments, on='anonymized_person_id')
+result = pd.merge(streams, assignments, on='anonymized_person_id', how="left")
+
+
+
+
+# check result
+grp = result.groupby('anonymized_person_id')
+
+
 
